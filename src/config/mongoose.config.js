@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const uri = process.env.MONGODB_URI
 
 // Connect to MongoDB Atlas
-mongoose.connect(uri)
+mongoose
+	.connect(uri)
 	.then(() => console.log("MongoDB connection established"))
-	.catch(err => console.log(err))
-
+	.catch((err) => console.log(err))

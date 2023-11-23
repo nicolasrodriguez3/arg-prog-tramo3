@@ -8,7 +8,8 @@ const fileUpload = require("express-fileupload")
 const app = express()
 const usersRoutes = require("./src/routes/users.routes")
 const filesRouter = require("./src/routes/files.routes")
-const middleware = require("./utils/middleware")
+const authRoutes = require("./src/routes/auth.routes")
+const middleware = require("./src/utils/middleware")
 
 // Middlewares
 app.use(express.json())
@@ -21,6 +22,8 @@ app.get("/", (req, res) => {
 	res.send("Hello World!")
 })
 
+// Routes
+app.use("/api/login", authRoutes)
 app.use("/api/users", usersRoutes)
 app.use("/files", filesRouter)
 

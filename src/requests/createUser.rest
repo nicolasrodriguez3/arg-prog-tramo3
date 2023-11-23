@@ -3,7 +3,7 @@ Host: localhost:3001
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "johndoe@example.com",
+  "name": "Nicolas Cage",
+  "email": "nicolas@cage.com",
   "password": "password123"
 }
