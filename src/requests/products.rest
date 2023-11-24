@@ -1,0 +1,21 @@
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pY29sYXNAcm9kcmlndWV6LmNvbSIsImlkIjoiNjU1ZmM1MmNiNmUwOTc2OTBhYjhkZjRhIiwiaWF0IjoxNzAwNzc3NzY0fQ.0PxZAN1LCvvDdeyax_MPp430WHtlL2vQp0Z7dv_VJik
+###
+
+POST /api/products HTTP/1.1
+Host: localhost:3001
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Example Product",
+  "price": 19.99,
+  "description": "This is an example product.",
+	"category": "Example Category"
+}
+
+###
+GET /api/products HTTP/1.1
+Host: localhost:3001
+Content-Type: application/json
+Authorization: Bearer {{token}}
