@@ -9,6 +9,7 @@ const app = express()
 const usersRoutes = require("./src/routes/users.routes")
 const filesRouter = require("./src/routes/files.routes")
 const authRoutes = require("./src/routes/auth.routes")
+const productsRouter = require("./src/routes/products.routes")
 const middleware = require("./src/utils/middleware")
 
 // Middlewares
@@ -23,9 +24,10 @@ app.get("/", (req, res) => {
 })
 
 // Routes
-app.use("/api/login", authRoutes)
+app.use("/api", authRoutes)
 app.use("/api/users", usersRoutes)
 app.use("/files", filesRouter)
+app.use("/api/products", productsRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

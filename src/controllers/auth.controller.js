@@ -6,10 +6,9 @@ const User = require("../models/user.model")
 // Login controller
 const loginController = async (req, res) => {
 	const { email, password } = req.body
-
 	// Check if user exists
 	const user = await User.findOne({ email })
-	const passwordCorrect = user === null ? false : await bcrypt.compare(password, user.passwordHash)
+	const passwordCorrect = user === null ? false : await bcrypt.compare(password, user.password)
 
 	if (!(user && passwordCorrect)) {
 		return res.status(401).json({ error: "invalid email or password" })
@@ -36,7 +35,7 @@ const registerController = async (req, res) => {
 	const user = new User({
 		name,
 		email,
-		passwordHash,
+		password: passwordHash,
 	})
 
 	// Save user to DB
